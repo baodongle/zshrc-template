@@ -294,8 +294,8 @@ fi
 # neofetch
 
 # Setting $GOPATH
-export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Configure the ANDROID_HOME environment variable
 export ANDROID_HOME=$HOME/Android/sdk
