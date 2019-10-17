@@ -1,31 +1,6 @@
 export TERM=xterm-256color
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=powerlevel10k/powerlevel10k
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# export PATH=$HOME/bin:/usr/local/bin:$PATH                                                                                                                                                                                                  # Path to your oh-my-zsh installation.                                                                                 export ZSH="/home/baodongle/.oh-my-zsh"                                                                                                                                                                                                       # Set name of the theme to load --- if set to "random", it will                                                        # load a random theme each time oh-my-zsh is loaded, in which case,                                                    # to know which specific one was loaded, run: echo $RANDOM_THEME                                                       # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes                                                            ZSH_THEME=powerlevel10k/powerlevel10k                                                                                                                                                                                                         # Set list of themes to pick from when loading at random                                                               # Setting this variable when ZSH_THEME=random will cause zsh to load                                                   # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/                                                # If set to an empty array, this variable will have no effect.                                                         # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )                                                                                                                                                                                   # Uncomment the following line to use case-sensitive completion.                                                       # CASE_SENSITIVE="true"                                                                                                                                                                                                                       # Uncomment the following line to use hyphen-insensitive completion.                                                   # Case-sensitive completion must be off. _ and - will be interchangeable.                                              # HYPHEN_INSENSITIVE="true"                                                                                                                                                                                                                   # Uncomment the following line to disable bi-weekly auto-update checks.                                                # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -69,8 +44,9 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fast-syntax-highlighting zsh-autosuggestions)
+plugins=(git debian sudo nvm npm yarn zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -175,26 +151,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 #Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -100"
 
-# ZSH theme
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs battery time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_OS_ICON_FOREGROUND="green"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="white"
-# battery
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='001'
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='076'
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='076'
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='003'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
-POWERLEVEL9K_BATTERY_VERBOSE=false
-POWERLEVEL9K_BATTERY_STAGES=''
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+export PATH="$(yarn global bin):$PATH"
