@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,7 +69,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git golang archlinux yarn npm ng vscode)
+plugins=(git archlinux yarn npm nvm ng vscode zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -217,36 +217,6 @@ if [ -d "$HOME/.bin" ] ;
 	then PATH="$HOME/.bin:$PATH"
 fi
 
-# ZSH theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# Custom theme
-POWERLEVEL9K_MODE=nerdfont-complete
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs battery time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LINUX_ICON='\uf303'
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="white"
-# battery
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='001'
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='076'
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='076'
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='none'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='003'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
-POWERLEVEL9K_BATTERY_VERBOSE=false
-POWERLEVEL9K_BATTERY_STAGES=''
-
-# ZSH plugins
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -295,11 +265,11 @@ fi
 # neofetch
 
 # yarn global
-#export PATH="$(yarn global bin):$PATH"
+export PATH="$(yarn global bin):$PATH"
 
 # Setting $GOPATH
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$(go env GOPATH)/bin
+#export GOPATH=$(go env GOPATH)
+#export PATH=$PATH:$(go env GOPATH)/bin
 
 # Configure the ANDROID_HOME environment variable
 #export ANDROID_HOME=$HOME/Android/Sdk
@@ -308,4 +278,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 #export PATH=$PATH:$ANDROID_HOME/tools/bin
 #export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-source /usr/share/nvm/init-nvm.sh 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
